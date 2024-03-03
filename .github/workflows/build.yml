@@ -37,8 +37,8 @@ jobs:
       - name: Download Artifacts
         uses: actions/download-artifact@v2
         with:
-         name: my-artifacts
-         path: /
+         name: my-artifacts-1
+         path: cp -r/home/runner/work/spring-petclinic/spring-petclinic/target* /
 
       - name: Commit artifacts
         run: |
