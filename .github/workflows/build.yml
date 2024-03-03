@@ -28,7 +28,7 @@ jobs:
       - name: Build and analyze
         run: mvn -B package
       - name: Upload Artifacts
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v3
         with:
           name: my-artifacts
           path: /home/runner/work/spring-petclinic/spring-petclinic/target/*
@@ -38,7 +38,7 @@ jobs:
     needs: build
     steps:
     - name: Download
-      uses: actions/download-artifact@v2
+      uses: actions/download-artifact@v3
       with:
        name: my-artifacts
     - name: test artfact
