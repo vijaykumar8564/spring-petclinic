@@ -27,3 +27,13 @@ jobs:
           restore-keys: ${{ runner.os }}-m2
       - name: Build and analyze
         run: mvn -B package
+      - name: Create target directory
+        run: mkdir -p target
+      - name: Copy artifacts
+        run: cp -r /home/runner/work/spring-petclinic/spring-petclinic/target/spring-petclinic-3.2.0-SNAPSHOT.jar target/
+      - name: Commit artifacts
+        run: |
+         git config --local user.email "action@github.com"
+         git config --local user.name "GitHub Action"
+         git add target/
+         git commit -m "Add Maven artifacts"  
